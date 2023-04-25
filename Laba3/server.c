@@ -5,7 +5,7 @@
 #include <inttypes.h>
 #include <errno.h>
 #include <sys/neutrino.h>
-
+#include <stdlib.h>
 
 int main(int argc,char* argv)
 {
@@ -23,6 +23,10 @@ int main(int argc,char* argv)
         rcvid = MsgReceive(chid, message, sizeof(message), NULL);
         printf("Polychili soobshenie, rcid %X \n", rcvid);
         printf("Soobshenie takoe : \"%s\".\n", message);
+        if (!strcmp(message, "Kalmykov Vladimir I993"))
+            sprintf(message,"Soobwenie soderjit FIO");
+        else
+            sprintf(message,"Owibka! Neponyatnie dannie!");
         MsgReply(rcvid, EOK, message, sizeof(message));
         printf("\"%s\". \n", message);
     }
