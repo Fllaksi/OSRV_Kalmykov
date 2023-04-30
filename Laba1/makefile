@@ -1,10 +1,9 @@
-CFLAGS =
 all: main testing
-debug:  CFLAGS+= -g
-debug: main testing
+debug: main.c
+	gcc -g -o main_debug main.c
 main : main.c
-	gcc $(CFLAGS) -o main main.c
-testing: testing
-	gcc $(CLAGS) -o testing testing.c
+	gcc -o main main.c
+testing: testing.c
+	gcc -o testing testing.c
 clean:
-	rm -f main testing
+	rm -f main testing main_debug
