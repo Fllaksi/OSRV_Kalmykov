@@ -42,6 +42,7 @@ int main()
     pthread_create(NULL, NULL, thread2, NULL);
     time(&now);
     printf("Main() : oshidanie y bariera, vrimia %s \n", ctime_r(&now, buf));
+    barrier_wait(&barrier);
     time(&now);
     printf("barier v main() , vremia srabativania %s \n", ctime_r(&now, buf));
     sleep(5);
